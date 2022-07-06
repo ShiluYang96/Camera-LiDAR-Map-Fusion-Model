@@ -1,0 +1,55 @@
+#--------------------------------Basic setting--------------------------------------#
+train_set: train
+val_set: val
+num_gpus: 1
+cuda: true
+device: 0
+num_workers: 12
+float16: false  # cause bug during training eval
+obj_list: [ 'Robotino' ]
+
+# default input size det 0 - det 8
+# input_sizes: '[512, 640, 768, 896, 1024, 1280, 1280, 1536, 1536]'  # origin
+input_sizes: '[512, 640, 768, 896, 1024, 1280, 1280, 1536, 1536]'
+
+# coefficients of efficientdet, model det0 - det 8
+compound_coef: 0
+
+# check anchor with debug train, if anchor not suitable --> no bbox output
+anchors_scales: '[3.175, 4.55, 5.8]'
+anchors_ratios: '[(1, 3.4645669291338583), (1, 3.3699633699633704), (1, 2.741379310344828)]'
+
+#--------------------------------Train parameters--------------------------------------#
+# suggest using 'adamw' until the very final stage then switch to 'sgd'
+optim: adamw
+batch_size: 8
+lr: 1e-4
+# batch_size: 2 # 16
+# lr: 1e-5 # 1e-3
+
+epochs: 100
+# Number of epoches between val phases
+val_interval: 2
+map_eval_interval: 2
+# Number of iteration interval between saving
+save_interval: 50
+
+# Early stopping parameter: minimum change loss to qualify as an improvement
+es_min_delta: 0.0
+# Early stopping\'s parameter: number of epochs with no improvement after which training will be stopped. Set to 0 to disable this technique
+es_patience: 0
+
+# mean and std in RGB order
+mean: [0.485, 0.456, 0.406]  # coco
+std: [0.229, 0.224, 0.225]  # coco
+
+#--------------------------------Predict parameters--------------------------------------#
+# set 0 to use default size
+force_input_size: 0
+score_threshold: 0.1
+iou_threshold: 0.3
+extreme_fps_test: false
+inference_batch_size: 16
+
+#--------------------------------Evaluate parameters--------------------------------------#
+nms_threshold: 0.5

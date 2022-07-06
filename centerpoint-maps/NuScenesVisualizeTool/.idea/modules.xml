@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../KITTI_Process/.idea/KITTI_Process.iml" filepath="$PROJECT_DIR$/../KITTI_Process/.idea/KITTI_Process.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/NuScenesAnalysis.iml" filepath="$PROJECT_DIR$/.idea/NuScenesAnalysis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../detr3d-main/.idea/detr3d-main.iml" filepath="$PROJECT_DIR$/../detr3d-main/.idea/detr3d-main.iml" />
+    </modules>
+  </component>
+</project>
